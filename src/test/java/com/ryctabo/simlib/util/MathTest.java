@@ -15,8 +15,10 @@
  */
 package com.ryctabo.simlib.util;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
+
 import org.junit.Test;
+
 
 /**
  *
@@ -27,74 +29,40 @@ public class MathTest {
     
     @Test
     public void average() {
-        Assert.assertEquals(19, Math.average(10, 12, 36));
-        Assert.assertEquals(19L, Math.average(10L, 12L, 36L));
-        Assert.assertEquals(19.3333f, Math.average(10f, 12f, 36f), 1e-4f);
-        Assert.assertEquals(19.3333d, Math.average(10d, 12d, 36d), 1e-4d);
+        assertEquals(19, Math.average(10, 12, 36));
+        assertEquals(19.3333d, Math.average(10d, 12d, 36d), 1e-4d);
     }
     
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void fact() {
-        long expResult = 2432902008176640000L;
-        long result = Math.fact(20);
-        
-        Assert.assertEquals(expResult, result);
-        
-        boolean exception = false;
-        try {
-            Math.fact(-1);
-        } catch (Exception e) {
-            exception = true;
-        }
-        Assert.assertTrue(exception);
+        long expected = 2432902008176640000L;
+        assertEquals(expected, Math.fact(20));
+        //The next line should throw an error
+        Math.fact(-1);
     }
     
     @Test
     public void gcd() {
-        int expResult = 14;
-        int result = Math.gcd(42, -56);
-        
-        Assert.assertEquals(expResult, result);
-    }
-    
-    @Test
-    public void getPrimeFactors() {
-        int[] expResult1 = new int[] {2, 3};
-        int[] result1 = Math.getPrimeFactors(false, 6);
-        
-        Assert.assertArrayEquals(expResult1, result1);
-        
-        int[] expResult2 = new int[] {2, 2, 5, 5};
-        int[] result2 = Math.getPrimeFactors(false, 100);
-        
-        Assert.assertArrayEquals(expResult2, result2);
-        
-        int[] expResult3 = new int[] {2, 5};
-        int[] result3 = Math.getPrimeFactors(true, 100);
-        
-        Assert.assertArrayEquals(expResult3, result3);
+        assertEquals(14, Math.gcd(42, -56));
     }
     
     @Test
     public void isCoprime() {
-        Assert.assertTrue(Math.isCoprime(6, 35));
-        Assert.assertFalse(Math.isCoprime(6, 27));
+        assertTrue(Math.isCoprime(6, 35));
+        assertFalse(Math.isCoprime(6, 27));
     }
     
     @Test
     public void isPrime() {
-        Assert.assertTrue(Math.isPrime(524287));
-        Assert.assertFalse(Math.isPrime(561435134));
-        Assert.assertTrue(!Math.isPrime(-1));
+        assertTrue(Math.isPrime(524287));
+        assertFalse(Math.isPrime(561435134));
+        assertFalse(Math.isPrime(-1));
     }
     
     @Test
-    public void plus() {
-        Assert.assertEquals(0, Math.plus());
-        Assert.assertEquals(6, Math.plus(3, 2, 1));
-        Assert.assertEquals(-1, Math.plus(3, 2, -6));
-        Assert.assertEquals(6.3f, Math.plus(1.5f, 1.6f, 3.2f), 0f);
-        Assert.assertEquals(6.3d, Math.plus(1.5d, 1.6d, 3.2d), 0.000001d);
+    public void plusWithDecimal() {
+        assertEquals(6.3f, Math.plus(1.5f, 1.6f, 3.2f), 0f);
+        assertEquals(6.3d, Math.plus(1.5d, 1.6d, 3.2d), 0.000001d);
     }
     
 }
