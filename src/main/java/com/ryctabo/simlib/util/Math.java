@@ -20,8 +20,8 @@ import java.util.List;
 
 /**
  *
- * @author Gustavo Pacheco
- * @version 0.8
+ * @author Gustavo Pacheco <ryctabo@gmail.com>
+ * @version 1.0-SNAPSHOT
  */
 public final class Math {
     
@@ -90,11 +90,11 @@ public final class Math {
      * </ul>
      * @param value a value
      * @return the factorial of {@code value}
-     * @throws IllegalArgumentException if the given argument is negative
+     * @throws ArithmeticException if the given value is negative.
      */
     public static long fact(long value) {
         if (value < 0)
-            throw new IllegalArgumentException("the value can't be negative.");
+            throw new ArithmeticException("the value can't be negative.");
         return value == 0 ? 1 : value * fact(value - 1);
     }
     
@@ -165,7 +165,7 @@ public final class Math {
      * @return list of the prime factors
      */
     public static List<Integer> getPrimeFactorsList(boolean distint, int value) {
-        List<Integer> primes = new ArrayList<Integer>();
+        List<Integer> primes = new ArrayList<>();
         int temp = value, div = 2;
         while (temp > 1) {
             if (temp % div == 0) {
@@ -187,7 +187,7 @@ public final class Math {
      * @return list of the prime factors
      */
     public static List<Long> getPrimeFactorsList(boolean distint, long value) {
-        List<Long> primes = new ArrayList<Long>();
+        List<Long> primes = new ArrayList<>();
         long temp = value, div = 2;
         while (temp > 1) {
             if (temp % div == 0) {

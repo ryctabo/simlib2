@@ -22,8 +22,8 @@ import org.junit.Test;
 
 /**
  *
- * @author Gustavo Pacheco
- * @version 0.2
+ * @author Gustavo Pacheco <ryctabo@gmail.com>
+ * @version 1.0
  */
 public class MathTest {
     
@@ -33,7 +33,7 @@ public class MathTest {
         assertEquals(19.3333d, Math.average(10d, 12d, 36d), 1e-4d);
     }
     
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expected = ArithmeticException.class)
     public void fact() {
         long expected = 2432902008176640000L;
         assertEquals(expected, Math.fact(20));
