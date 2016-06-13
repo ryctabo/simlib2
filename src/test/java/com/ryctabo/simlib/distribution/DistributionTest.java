@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 rycta.
+ * Copyright 2016 Gustavo Pacheco.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,15 +17,19 @@ package com.ryctabo.simlib.distribution;
 
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 /**
  *
- * @author Gustavo Pacheco
- * @version 0.1
+ * @author Gustavo Pacheco <ryctabo@gmail.com>
+ * @version 1.0-SNAPSHOT
  */
 public class DistributionTest {
     
     @Test
     public void exponencial() {
+        assertEquals(1.3, Distribution.exponential(8, .85), 1e-2);
+        assertEquals(1.3, Distribution.exponential(.125, .85), 1e-2);
     }
     
 }
