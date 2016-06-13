@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 rycta.
+ * Copyright 2016 Gustavo Pacheco.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import org.junit.runners.Parameterized;
 
 /**
  *
- * @author Gustavo Pacheco
+ * @author Gustavo Pacheco <ryctabo@gmail.com>
  * @version 1.0
  */
 @RunWith(Parameterized.class)

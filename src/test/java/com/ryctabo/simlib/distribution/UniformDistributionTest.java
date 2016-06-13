@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 rycta.
+ * Copyright 2016 Gustavo Pacheco.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,16 +16,17 @@
 package com.ryctabo.simlib.distribution;
 
 import java.util.Arrays;
-import static org.junit.Assert.*;
-import org.junit.Before;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import static org.junit.Assert.*;
+
 /**
  *
- * @author Gustavo Pacheco
+ * @author Gustavo Pacheco <ryctabo@gmail.com>
  * @version 1.0
  */
 @RunWith(Parameterized.class)
@@ -57,7 +58,7 @@ public class UniformDistributionTest {
     
     @Test
     public void uniform() {
-        assertTrue(belongTheRange(
+        assertTrue(isInsideRank(
                 min, max, Distribution.uniform(min, max, random)
         ));
     }
@@ -74,7 +75,7 @@ public class UniformDistributionTest {
      * @return {@code true}, if random value is between {@code min} and 
      * {@code max}.
      */
-    private boolean belongTheRange(int a, int b, int value) {
+    private boolean isInsideRank(int a, int b, int value) {
         return value >= a && value < b;
     }
     
